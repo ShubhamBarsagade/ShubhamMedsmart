@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="admin-base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>View Expenses</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+	crossorigin="anonymous">
+	
+</head>
+<body>
+    <section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script
+          src="https://code.jquery.com/jquery-3.4.1.min.js"
+          integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+          crossorigin="anonymous"></script>
+    <script th:src="@{/js/script.js}"></script>
+    
+         
+         <div class="card me-3">
+           <div class="card-body">
+              
+              <h1 class="text-center">View Expenses</h1>
+              
+              <div class="container-fluid mt-1">
+                  
+                  <div class="row">
+                  
+                    <div class="col-md-10 offset-md-1">
+                    
+                       <form class="mt-2" id="viewExpense">
+								<div class="form-group mb-3 row">
+								
+									<label for="example-date-input" class="col-2 col-form-label"> Start Date</label>
+									<div class="col-4">
+										<input class="form-control" type="date" 
+											id="startDate">
+									</div>
+								  
+								  
+									<label for="example-date-input" class="col-2 col-form-label">End Date</label>
+									<div class="col-4">
+										<input class="form-control" type="date" 
+											id="endDate">
+									</div>
+								</div>
+								
+								
+								
+								<div class="container text-center">
+								    
+								    <button class="btn btn-outline-primary ">View Expenses</button>
+								
+								</div>
+								
+
+					   </form>
+
+                    
+                    </div>
+                    <div class="col-md-10 offset-md-1">
+                    <table class="table table-striped " id="user-table">
+                    <thead>
+                    <tr>
+                    <th>Opening Balance</th>
+                    <th>Online Payment</th>
+                    <th>Cash Payment</th>
+                    <th>RD1</th>
+                    <th>RD2</th>
+                    <th>RD3</th>
+                    <th>RD4</th>
+                    <th>Receive</th>
+                    <th>Credit</th>
+                    <th>Sale Return</th>
+                    <th>Tea</th>
+                    <th>Remark</th>
+                    <th>Expense Date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    
+                    </tbody>
+                    </table>
+                    </div>
+                  
+                  </div>
+              
+              
+              </div>
+         
+           </div>
+         
+         </div>
+         
+    </section>
+</body>
+</html>

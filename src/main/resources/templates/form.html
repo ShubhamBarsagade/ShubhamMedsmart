@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Login Here</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+	crossorigin="anonymous">
+</head>
+<body>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 offset-md-3">
+			
+			
+				<form th:action="@{/loginAdmin}" method="post" th:object="${adminDetail}">
+				
+				<h1 class="text-center">Signup Here</h1>
+				
+					<div class="mb-3">
+						<label for="exampleInputAdminUser1" class="form-label">Username</label> 
+						<input 
+						     type="text"  
+						     name="adminUser" 
+						     class="form-control"
+						     
+						     th:value="${adminDetail.adminUser}"
+						     th:classappend="${#fields.hasErrors('adminUser')?'is-invalid':''}"
+							 id="exampleInputAdminUser1" 
+							 aria-describedby="emailHelp">
+					         	<div th:each="e:${#fields.errors('adminUser')}" th:text="${e}" id="validationServer03Feedback" class="invalid-feedback">
+                              
+                               </div>
+                                
+                               
+                                
+					</div>
+					<div class="mb-3">
+					
+						<label for="exampleInputAdminPass1" class="form-label">Password</label>
+						
+						<input 
+						    type="password" 
+						    name="adminPass" 
+						    class="form-control"
+						    th:value="${adminDetail.adminPass}"
+						     th:classappend="${#fields.hasErrors('adminPass')?'is-invalid':''}"
+							id="exampleInputAdminPass1">
+							<div th:each="e:${#fields.errors('adminPass')}" th:text="${e}" id="validationServer03Feedback" class="invalid-feedback">
+                              
+                               </div>
+                               
+					</div>
+					<div class="mb-3 form-check">
+						<input type="checkbox" class="form-check-input" id="exampleCheck1">
+						<label class="form-check-label" for="exampleCheck1">Check
+							me out</label>
+					</div>
+					 <span th:text="${message}" class="input-group-text"></span>
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>

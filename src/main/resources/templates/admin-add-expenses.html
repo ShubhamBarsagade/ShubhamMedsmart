@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="admin-base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>Add Expenses</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+	crossorigin="anonymous">
+	
+</head>
+<body>
+    <section>
+         
+         <div class="card me-3">
+           <div class="card-body">
+              
+              <h1 class="text-center">Add Expenses</h1>
+              
+              <div class="container-fluid mt-1">
+                  
+                  <div class="row">
+                  
+                    <div class="col-md-10 offset-md-1">
+                    
+                       <form class="mt-2" th:action="@{/user/addExpenses}" th:object="${expenses}" enctype="multipart/formdata" method="post">
+                                <div th:if="${success}" class="form-group alert alert-success ht-primary">
+									<span th:text=${success}></span></div>
+								<div class="mb-3 row">
+									<label for="inputOpening"
+										class="form-control-lg col-sm-3 col-form-label">Opening
+										Balance : </label>
+									<div class="col-sm-9">
+										<input type="text" name="openingBalance" class="form-control"
+											th:value="${expenses.openingBalance}"
+											th:classappend="${#fields.hasErrors('openingBalance')?'is-invalid':''}"
+											id="inputOpening">
+											<div th:each="e:${#fields.errors('openingBalance')}"
+										th:text="${e}" id="validationServer03Feedback"
+										class="invalid-feedback"></div>
+									</div>
+									
+
+								</div>
+
+								<div class="mb-3 row">
+									<label for="inputOnlinePayment"
+										class="form-control-lg col-sm-3 col-form-label">Online
+										Payment : </label>
+									<div class="col-sm-9">
+										<input type="text" name="onlinePayment" class="form-control"
+											th:value="${expenses.onlinePayment}"
+											th:classappend="${#fields.hasErrors('onlinePayment')?'is-invalid':''}"
+											id="inputOnlinePayment">
+											<div th:each="e:${#fields.errors('onlinePayment')}"
+										th:text="${e}" id="validationServer03Feedback"
+										class="invalid-feedback"></div>
+									</div>
+									
+								</div>
+
+								<div class="mb-3 row">
+									<label for="inputCashPayment"
+										class="form-control-lg col-sm-3 col-form-label">Cash
+										Payment : </label>
+									<div class="col-sm-9">
+										<input type="text" name="cashPayment" class="form-control"
+											th:value="${expenses.cashPayment}"
+											th:classappend="${#fields.hasErrors('cashPayment')?'is-invalid':''}"
+											id="inputCashPayment">
+											<div th:each="e:${#fields.errors('cashPayment')}"
+										th:text="${e}" id="validationServer03Feedback"
+										class="invalid-feedback"></div>
+									</div>
+
+									
+
+
+								</div>
+
+								<div class="mb-3 row">
+									<label for="inputRdOne"
+										class="form-control-lg col-sm-3 col-form-label">RD1 :
+									</label>
+									<div class="col-sm-9">
+										<input type="text" name="rdOne" class="form-control"
+											th:value="${expenses.rdOne}"
+											th:classappend="${#fields.hasErrors('rdOne')?'is-invalid':''}"
+											id="inputRdOne">
+											<div th:each="e:${#fields.errors('rdOne')}" th:text="${e}"
+										id="validationServer03Feedback" class="invalid-feedback"></div>
+									</div>
+									
+
+								</div>
+
+								<div class="mb-3 row">
+									<label for="inputRdTwo" class="form-control-lg col-sm-3 col-form-label">RD 2 : </label>
+									<div class="col-sm-9">
+										<input type="text" name="rdTwo" class="form-control" 
+										th:value="${expenses.rdTwo}"
+							            th:classappend="${#fields.hasErrors('rdTwo')?'is-invalid':''}" id="inputRdTwo">
+									<div th:each="e:${#fields.errors('rdTwo')}" th:text="${e}"
+						   	            id="validationServer03Feedback" class="invalid-feedback"></div>
+									</div>
+									
+								   
+								</div>
+								
+								<div class="mb-3 row">
+									<label for="inputRdThree" class="form-control-lg col-sm-3 col-form-label">RD 3 : </label>
+									<div class="col-sm-9">
+										<input type="text" name="rdThree" class="form-control" 
+										th:value="${expenses.rdThree}"
+							            th:classappend="${#fields.hasErrors('rdThree')?'is-invalid':''}" id="inputRdThree">
+									
+									<div th:each="e:${#fields.errors('rdThree')}" th:text="${e}"
+						   	            id="validationServer03Feedback" class="invalid-feedback"></div>
+									
+									</div>
+									
+								    
+									
+								</div>
+								
+								<div class="mb-3 row">
+									<label for="inputRdFour" class="form-control-lg col-sm-3 col-form-label">RD 4 : </label>
+									<div class="col-sm-9">
+										<input type="text" name="rdFour" class="form-control" 
+										th:value="${expenses.rdFour}"
+							            th:classappend="${#fields.hasErrors('rdFour')?'is-invalid':''}" id="inputRdFour">
+									<div th:each="e:${#fields.errors('rdFour')}" th:text="${e}"
+						   	            id="validationServer03Feedback" class="invalid-feedback"></div>
+									</div>
+									
+								    
+								</div>
+								
+								<div class="mb-3 row">
+									<label for="inputReceive" class="form-control-lg col-sm-3 col-form-label">Receive : </label>
+									<div class="col-sm-9">
+										<input type="text" name="receive" class="form-control"
+										th:value="${expenses.receive}"
+							            th:classappend="${#fields.hasErrors('receive')?'is-invalid':''}" id="inputReceive">
+								
+								<div th:each="e:${#fields.errors('receive')}" th:text="${e}"
+						   	            id="validationServer03Feedback" class="invalid-feedback"></div>
+								
+									</div>
+									
+								    
+									
+								</div>
+								
+								<div class="mb-3 row">
+									<label for="inputCredit" class="form-control-lg col-sm-3 col-form-label">Credit : </label>
+									<div class="col-sm-9">
+										<input type="text" name="credit" class="form-control"
+										th:value="${expenses.credit}"
+							            th:classappend="${#fields.hasErrors('credit')?'is-invalid':''}"  id="inputCredit">
+									
+									<div th:each="e:${#fields.errors('credit')}" th:text="${e}"
+						   	            id="validationServer03Feedback" class="invalid-feedback"></div>
+									
+									</div>
+									
+								    
+									
+								</div>
+								
+								<div class="mb-3 row">
+									<label for="inputSaleReturn" class="form-control-lg col-sm-3 col-form-label">Sales Return : </label>
+									<div class="col-sm-9">
+										<input type="text" name="saleReturn" class="form-control"
+										th:value="${expenses.saleReturn}"
+							            th:classappend="${#fields.hasErrors('saleReturn')?'is-invalid':''}" id="inputSaleReturn">
+									
+									<div th:each="e:${#fields.errors('saleReturn')}" th:text="${e}"
+						   	            id="validationServer03Feedback" class="invalid-feedback"></div>
+									
+									</div>
+									
+									
+								</div>
+								
+								<div class="mb-3 row">
+									<label for="inputTea" class="form-control-lg col-sm-3 col-form-label">Tea : </label>
+									<div class="col-sm-9">
+										<input type="text" name="tea" class="form-control" 
+										th:value="${expenses.tea}"
+							            th:classappend="${#fields.hasErrors('tea')?'is-invalid':''}" id="inputTea">
+									<div th:each="e:${#fields.errors('tea')}" th:text="${e}"
+						   	            id="validationServer03Feedback" class="invalid-feedback"></div>
+									</div>
+									
+									
+								</div>
+								
+								<div class="mb-3 row">
+									<label for="inputRemark" class="form-control-lg col-sm-3 col-form-label">Remark : </label>
+									<div class="col-sm-9">
+										<textarea name="remark" id="inputRemark" cols="30" rows="5" class="form-control"
+										th:value="${expenses.remark}"
+							            th:classappend="${#fields.hasErrors('remark')?'is-invalid':''}"
+										 placeholder="Enter your Remark"></textarea>
+										 <div th:each="e:${#fields.errors('remark')}" th:text="${e}"
+						   	            id="validationServer03Feedback" class="invalid-feedback"></div>
+									</div>
+									
+									
+								</div>
+									
+								
+								
+							 	<div class="container text-center">
+								    
+								    <button class="btn btn-outline-primary ">Save Expenses</button>
+								
+								</div>
+								
+
+					   </form>
+
+                    
+                    </div>
+                  
+                  </div>
+              
+              
+              </div>
+         
+           </div>
+         
+         </div>
+         
+    </section>
+</body>
+</html>

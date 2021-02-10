@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>Register User</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+	crossorigin="anonymous">
+
+</head>
+<body>
+
+<section>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script>
+$(document).ready(function(){
+  $('[data-bs-toggle="popover"]').popover();
+  $('[data-bs-toggle="popover"]').popover();
+});
+</script>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 offset-md-3">
+
+
+				<form th:action="@{/registerUser}" method="post"
+					th:object="${userDetail}">
+
+					<h1 class="text-center">Registration Form</h1>
+
+					<div class="mb-3">
+						<label for="exampleInputName1" class="form-label">Full Name</label>
+					    <input type="text" 
+					           name="userName" 
+					           class="form-control"
+							   th:value="${userDetail.userName}"
+							   th:classappend="${#fields.hasErrors('userName')?'is-invalid':''}"
+							   id="exampleInputName1">
+						  <div th:each="e:${#fields.errors('userName')}" th:text="${e}"
+						   	   id="validationServer03Feedback" class="invalid-feedback"></div>
+   					</div>
+   					
+					<div class="mb-3">
+						<label for="exampleInputQualification1" class="form-label">Qualification</label>
+						<input type="text" 
+						       name="userQualification" 
+						       class="form-control"
+							   th:value="${userDetail.userQualification}"
+							   th:classappend="${#fields.hasErrors('userQualification')?'is-invalid':''}"
+							   id="exampleInputQualification1">
+						  <div th:each="e:${#fields.errors('userQualification')}"
+							   th:text="${e}" id="validationServer03Feedback"
+							   class="invalid-feedback"></div>
+
+					</div>
+					<div class="mb-3">
+						<label for="exampleInputEmail1" class="form-label">Email address</label> 
+						<input type="email" 
+						       name="userEmail" 
+						       class="form-control"
+							   th:value="${userDetail.userEmail}"
+							   th:classappend="${#fields.hasErrors('userEmail')?'is-invalid':''}"
+							   id="exampleInputEmail1" aria-describedby="emailHelp">
+						  <div th:each="e:${#fields.errors('userEmail')}" th:text="${e}"
+							   id="validationServer03Feedback" class="invalid-feedback"></div>
+
+					</div>
+					<div class="mb-3">
+						<label for="exampleInputNumber1" class="form-label">Contact Number</label> 
+						<input type="text" 
+						       name="userNumber" 
+						       class="form-control"
+							   th:value="${userDetail.userNumber}"
+							   th:classappend="${#fields.hasErrors('userNumber')?'is-invalid':''}"
+							   id="exampleInputNumber1">
+						  <div th:each="e:${#fields.errors('userNumber')}" th:text="${e}"
+							   id="validationServer03Feedback" class="invalid-feedback"></div>
+
+					</div>
+					<div class="mb-3">
+						<label for="exampleInputUsername1" class="form-label">Username</label>
+						<input type="text" 
+						       name="userUsername" 
+						       class="form-control"
+							   th:value="${userDetail.userUsername}"
+							   th:classappend="${#fields.hasErrors('userUsername')?'is-invalid':''}"
+							   id="exampleInputUsername1">
+						  <div th:each="e:${#fields.errors('userUsername')}" th:text="${e}"
+							   id="validationServer03Feedback" class="invalid-feedback"></div>
+
+					</div>
+					<div class="mb-3">
+
+						<label for="exampleInputPassword1" class="form-label">Password</label>
+						<input type="password" 
+						       name="userPass" 
+						       class="form-control"
+							   th:value="${userDetail.userPass}"
+							   th:classappend="${#fields.hasErrors('userPass')?'is-invalid':''}"
+							   id="exampleInputPassword1">
+						  <button type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover" title="Password must be" data-bs-content="Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character">check</button>
+						  
+							<div th:each="e:${#fields.errors('userPass')}" th:text="${e}"
+							id="validationServer03Feedback" class="invalid-feedback"></div>
+
+					</div>
+					<div class="mb-3">
+
+						<label for="exampleInputConfirmPassword1" class="form-label">Confirm Password</label>
+						<input type="password" 
+						       name="userConfirmPass" 
+						       class="form-control"
+							   th:value="${userDetail.userConfirmPass}"
+							   th:classappend="${#fields.hasErrors('userConfirmPass')?'is-invalid':''}"
+							   id="exampleInputConfirmPassword1">
+							
+						<div th:each="e:${#fields.errors('userConfirmPass')}" th:text="${e}"
+							id="validationServer03Feedback" class="invalid-feedback"></div>
+
+					</div>
+					
+					<div class="mb-2 bg-light text-danger">
+					<span th:text="${message}" ></span>
+					</div>
+					
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+
+			</div>
+		</div>
+	</div>
+
+</section>
+</body>
+</html>
